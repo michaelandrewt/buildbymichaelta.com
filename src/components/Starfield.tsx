@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 interface Star {
   x: number;
@@ -12,6 +13,7 @@ interface Star {
 
 export default function Starfield() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,6 +21,8 @@ export default function Starfield() {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    const isDark = theme === 'dark';
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -45,11 +49,14 @@ export default function Starfield() {
     // Animation
     let animationFrameId: number;
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Clear with theme-appropriate background
+      ctx.fillStyle = isDark ? '#000000' : '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
-        // Draw star
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        // Draw star with theme-appropriate color
+        const starColor = isDark ? '255, 255, 255' : '100, 100, 100';
+        ctx.fillStyle = `rgba(${starColor}, ${star.opacity})`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
@@ -74,13 +81,12 @@ export default function Starfield() {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10"
-      style={{ background: '#000000' }}
+      className="fixed top-0 left-0 w-full h-full -z-10 transition-colors duration-300"
     />
   );
 }

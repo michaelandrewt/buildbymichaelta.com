@@ -44,7 +44,7 @@ export default function BlogPosts() {
 
   return (
     <section className="pb-24">
-      <h2 className="text-3xl font-bold text-white mb-8">Blog posts</h2>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Blog posts</h2>
 
       <div className="space-y-6">
         {posts.map((post) => (
@@ -53,8 +53,8 @@ export default function BlogPosts() {
             href={`/blog/${post.slug}`}
             className="block group"
           >
-            <div className="border-l-2 border-white/20 pl-6 py-2 hover:border-white/60 transition-colors duration-200">
-              <h3 className="text-xl text-white group-hover:text-gray-300 transition-colors duration-200 mb-2">
+            <div className="border-l-2 border-gray-800/20 dark:border-white/20 pl-6 py-2 hover:border-gray-800/60 dark:hover:border-white/60 transition-colors duration-200">
+              <h3 className="text-xl text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-200 mb-2">
                 {post.title}
               </h3>
               <p className="text-gray-500 text-sm">{post.date}</p>

@@ -13,7 +13,7 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={toggleLanguage}
-      className="text-gray-400 hover:text-white transition-colors duration-200"
+      className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
       aria-label="Toggle language"
     >
       {language === 'en' ? '中文' : 'EN'}

@@ -1,24 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-    // In a real implementation, you would apply the theme to the document
-    // document.documentElement.classList.toggle('dark');
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <button
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full border-2 border-white/20 hover:border-white/60 flex items-center justify-center transition-colors duration-200"
+      className="w-10 h-10 rounded-full border-2 border-white/20 dark:border-white/20 border-gray-800/20 hover:border-white/60 dark:hover:border-white/60 hover:border-gray-800/60 flex items-center justify-center transition-colors duration-200"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        // Sun icon for dark mode
+        // Sun icon for dark mode (clicking will switch to light)
         <svg
           className="w-5 h-5 text-yellow-300"
           fill="none"
@@ -33,7 +27,7 @@ export default function ThemeToggle() {
           />
         </svg>
       ) : (
-        // Moon icon for light mode
+        // Moon icon for light mode (clicking will switch to dark)
         <svg
           className="w-5 h-5 text-gray-700"
           fill="none"

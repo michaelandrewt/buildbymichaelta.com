@@ -18,8 +18,8 @@ export default function Timeline() {
       <ul className="space-y-4">
         {achievements.map((achievement, index) => (
           <li key={index} className="flex items-start gap-3">
-            <span className="text-white/40 mt-1">•</span>
-            <span className="text-gray-300 text-lg leading-relaxed">
+            <span className="text-gray-800/40 dark:text-white/40 mt-1">•</span>
+            <span className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
               {achievement}
             </span>
           </li>

@@ -20,7 +20,7 @@ export default function Hero() {
     <section className="pt-20 pb-32">
       {/* Profile Image */}
       <div className="mb-12">
-        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-white/20">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-800/20 dark:border-white/20">
           <Image
             src="/profile.jpg"
             alt="Elliot Lindberg"
@@ -33,30 +33,30 @@ export default function Hero() {
       </div>
 
       {/* Name and Title */}
-      <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
+      <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
         Elliot Lindberg
       </h1>
 
-      <p className="text-xl md:text-2xl text-gray-300 mb-12">
+      <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-12">
         18 y/o Developer building the future. Currently Software Engineer @ Lovable
       </p>
 
       {/* Social Links */}
-      <div className="flex flex-wrap gap-6 text-gray-400">
+      <div className="flex flex-wrap gap-6 text-gray-600 dark:text-gray-400">
         {socialLinks.map((link) => (
           <a
             key={link.name}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors duration-200"
+            className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
           >
             {link.name}
           </a>
         ))}
         <button
           onClick={copyEmail}
-          className="hover:text-white transition-colors duration-200"
+          className="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
         >
           Copy email
         </button>
