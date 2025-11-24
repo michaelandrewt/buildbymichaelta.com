@@ -1,16 +1,10 @@
 export default function Timeline() {
   const achievements = [
-    'Created my first invention at 8',
-    'Had a Swedish youtube channel at 11',
-    'Made Snapchat filters with 14 million views at 12',
-    'Made software with 310k+ users at 14',
-    'Did pentesting/cybersec and reverse engineered software at 14',
-    'Traveled alone across europe to conferences since 15',
-    'Created a freelancing company at 15',
-    'Finished all high school programming classes in 3 weeks instead of 3 years at 16',
-    'Created two micro startups at 16',
-    'Studying chinese since 16',
-    'Youngest Software Engineer at Lovable since 17',
+    'Sold water on the street of Nguyen Hue, Vietnam at 9',
+    'Managed multi channel social media growth for 10 mom and pop stores at 18',
+    'Ranked top performer managing 130+ daily contacts with 21% engagement rate at 12 rate at 19',
+    'Built outbound pipeline across 400+ accounts at a fintech startup before pmf at 21',
+    'Self-taught SQL and Python for pipeline reporting, business intelligence at 23'
   ];
 
   return (
@@ -18,8 +12,8 @@ export default function Timeline() {
       <ul className="space-y-4">
         {achievements.map((achievement, index) => (
           <li key={index} className="flex items-start gap-3">
-            <span className="text-white/40 mt-1">•</span>
-            <span className="text-gray-300 text-lg leading-relaxed">
+            <span className="text-black/40 dark:text-white/40 mt-1">•</span>
+            <span className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
               {achievement}
             </span>
           </li>

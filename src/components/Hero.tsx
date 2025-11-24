@@ -4,15 +4,13 @@ import Image from 'next/image';
 
 export default function Hero() {
   const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com' },
-    { name: 'YouTube', url: 'https://youtube.com' },
-    { name: 'LinkedIn', url: 'https://linkedin.com' },
-    { name: 'X/Twitter', url: 'https://twitter.com' },
-    { name: 'Instagram', url: 'https://instagram.com' },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/michael-khang-ta/' },
+    { name: 'X/Twitter', url: 'https://x.com/ricebroskitt' },
+    { name: 'Instagram', url: 'https://instagram.com/ricebroski' },
   ];
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('your.email@example.com');
+    navigator.clipboard.writeText('buildbymichaelta@gmail.com');
     // You could add a toast notification here
   };
 
@@ -20,10 +18,10 @@ export default function Hero() {
     <section className="pt-20 pb-32">
       {/* Profile Image */}
       <div className="mb-12">
-        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-white/20">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 dark:border-white/20">
           <Image
             src="/profile.jpg"
-            alt="Elliot Lindberg"
+            alt="Michael Ta"
             width={96}
             height={96}
             className="w-full h-full object-cover"
@@ -33,30 +31,30 @@ export default function Hero() {
       </div>
 
       {/* Name and Title */}
-      <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
-        Elliot Lindberg
+      <h1 className="text-6xl md:text-7xl font-bold text-black dark:text-white mb-6">
+        Michael Ta
       </h1>
 
-      <p className="text-xl md:text-2xl text-gray-300 mb-12">
-        18 y/o Developer building the future. Currently Software Engineer @ Lovable
+      <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-12">
+        BDR 
       </p>
 
       {/* Social Links */}
-      <div className="flex flex-wrap gap-6 text-gray-400">
+      <div className="flex flex-wrap gap-6 text-gray-600 dark:text-gray-400">
         {socialLinks.map((link) => (
           <a
             key={link.name}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors duration-200"
+            className="hover:text-black dark:hover:text-white transition-colors duration-200"
           >
             {link.name}
           </a>
         ))}
         <button
           onClick={copyEmail}
-          className="hover:text-white transition-colors duration-200"
+          className="hover:text-black dark:hover:text-white transition-colors duration-200"
         >
           Copy email
         </button>

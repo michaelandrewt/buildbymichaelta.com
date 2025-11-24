@@ -47,9 +47,13 @@ export default function Starfield() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Check if dark mode is active
+      const isDark = document.documentElement.classList.contains('dark');
+      const starColor = isDark ? '255, 255, 255' : '10, 10, 10';
+
       stars.forEach((star) => {
         // Draw star
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.fillStyle = `rgba(${starColor}, ${star.opacity})`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
@@ -79,8 +83,7 @@ export default function Starfield() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10"
-      style={{ background: '#000000' }}
+      className="fixed top-0 left-0 w-full h-full -z-10 bg-white dark:bg-black"
     />
   );
 }
