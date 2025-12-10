@@ -4,19 +4,19 @@ import fs from 'fs';
 import path from 'path';
 import { marked } from 'marked';
 
-const blogPostsMetadata: Record<string, { title: string; date: string }> = {
-  'project-1': {
-    title: 'project 1',
+const experimentsMetadata: Record<string, { title: string; date: string }> = {
+  'email-generator': {
+    title: 'Email Generator',
     date: 'November 20, 2025',
   },
-  'project-2': {
-    title: 'project 2',
+  'sale-play-recommendation': {
+    title: 'Sale Play Recommendation',
     date: 'November 15, 2025',
   },
 };
 
 async function getPostContent(slug: string) {
-  const filePath = path.join(process.cwd(), 'src', 'content', 'blog', `${slug}.md`);
+  const filePath = path.join(process.cwd(), 'src', 'content', 'experiments', `${slug}.md`);
 
   try {
     const fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -33,7 +33,7 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const metadata = blogPostsMetadata[slug as keyof typeof blogPostsMetadata];
+  const metadata = experimentsMetadata[slug as keyof typeof experimentsMetadata];
 
   if (!metadata) {
     notFound();

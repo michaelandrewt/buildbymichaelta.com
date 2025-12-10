@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   const socialLinks = [
@@ -35,9 +36,19 @@ export default function Hero() {
         Michael Ta
       </h1>
 
-      <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-12">
-        BDR 
+      <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
+        Business Development Rep | I book pipeline for B2B SaaS & fintech founders | CSUF Economics
       </p>
+
+      {/* Internal Links */}
+      <div className="mb-12">
+        <Link
+          href="/who-is-michael"
+          className="text-lg text-black dark:text-white border-b-2 border-black dark:border-white hover:opacity-70 transition-opacity"
+        >
+          Who is Michael?
+        </Link>
+      </div>
 
       {/* Social Links */}
       <div className="flex flex-wrap gap-6 text-gray-600 dark:text-gray-400">
