@@ -1,13 +1,15 @@
-# Elliot Lindberg's Personal Website
+# Michael Ta's Personal Website
 
 A modern personal portfolio website built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- **Starfield Animation**: Dynamic animated starfield background
 - **Hero Section**: Profile image, bio, and social links
-- **Timeline**: Chronological list of achievements
-- **Blog Posts**: List of blog articles
+- **Who is Michael?**: Chronological list of achievements (Timeline)
+- **Email Generator**: Tool for generating cold emails
+- **Sales Play Recommendation**: AI-powered sales play recommendations
+- **Experiments**: Collection of coding experiments
+- **Thoughts**: Personal articles and blog posts
 - **Theme Toggle**: Switch between dark and light modes
 - **Language Toggle**: Switch between English and Chinese
 
@@ -25,14 +27,7 @@ Then, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Setup Instructions
-
-1. **Add Profile Image**: Replace `/public/profile.jpg` with your actual profile image
-2. **Update Email**: Change the email in `src/components/Hero.tsx`
-3. **Update Social Links**: Update the URLs in `src/components/Hero.tsx`
-4. **Customize Content**: Edit the achievements in `src/components/Timeline.tsx` and blog posts in `src/components/BlogPosts.tsx`
+Open [http://www.buildbymichaelta.com) with your browser to see the result.
 
 ## Project Structure
 
@@ -43,14 +38,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   └── components/
-│       ├── Starfield.tsx
 │       ├── Hero.tsx
-│       ├── Timeline.tsx
-│       ├── BlogPosts.tsx
+│       ├── Timeline.tsx ("Who is Michael?")
+│       ├── EmailGenerator.tsx
+│       ├── SalesPlayRecommendation.tsx
+│       ├── Experiments.tsx
+│       ├── Thoughts.tsx
 │       ├── ThemeToggle.tsx
 │       └── LanguageToggle.tsx
 ├── public/
-│   └── profile.jpg (add your profile image here)
+│   └── profile.jpg
 └── ...config files
 ```
 
