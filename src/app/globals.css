@@ -3,25 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --card-bg: #f5f5f5;
-  --border: #e5e5e5;
+  --background: #faf8f5;
+  --foreground: #14120f;
+  --surface: #ffffff;
+  --muted-foreground: #5c5852;
+  --border: #e6e0d8;
+  --accent: #b45309;
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card-bg: #1a1a1a;
-  --border: #333333;
+  --background: #0c0a09;
+  --foreground: #f5f2ed;
+  --surface: #1a1816;
+  --muted-foreground: #a8a29e;
+  --border: #292524;
+  --accent: #fbbf24;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -39,32 +40,89 @@ body {
   overflow-x: hidden;
 }
 
-/* Blog Content Styling */
-.blog-content h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+.featured-title-mark {
+  background-position: left calc(100% - 0.02em);
+  background-repeat: repeat-x;
+  padding-bottom: 0.12em;
+  transition: background-size 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.group:hover .featured-title-project,
+.group:focus-visible .featured-title-project {
+  text-decoration-line: underline;
+  text-decoration-color: #ef4444;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.category-link {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color 0.18s ease, color 0.18s ease;
+}
+
+.category-link-project:hover,
+.category-link-project:focus-visible {
+  text-decoration-color: #ef4444;
+}
+
+.category-link-interest:hover,
+.category-link-interest:focus-visible {
+  text-decoration-color: #7dd3fc;
+}
+
+.category-link-growth:hover,
+.category-link-growth:focus-visible {
+  text-decoration-color: #f9a8d4;
+}
+
+.top-nav-link {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.top-nav-link:hover,
+.top-nav-link:focus-visible {
   color: var(--foreground);
 }
 
-.blog-content p {
-  margin-bottom: 1.5rem;
-  line-height: 1.75;
+.top-nav-link-project:hover,
+.top-nav-link-project:focus-visible {
+  text-decoration-color: #ef4444;
 }
 
-.blog-content ul,
-.blog-content ol {
-  margin-bottom: 1.5rem;
-  padding-left: 2rem;
+.top-nav-link-growth:hover,
+.top-nav-link-growth:focus-visible {
+  text-decoration-color: #f9a8d4;
 }
 
-.blog-content li {
-  margin-bottom: 0.5rem;
-  line-height: 1.75;
+.top-nav-link-interest:hover,
+.top-nav-link-interest:focus-visible {
+  text-decoration-color: #7dd3fc;
 }
 
-.blog-content strong {
-  font-weight: 600;
-  color: var(--foreground);
+.group:hover .featured-title-interest,
+.group:focus-visible .featured-title-interest {
+  text-decoration-line: underline;
+  text-decoration-color: #7dd3fc;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.group:hover .featured-title-growth,
+.group:focus-visible .featured-title-growth {
+  text-decoration-line: underline;
+  text-decoration-color: #f9a8d4;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }

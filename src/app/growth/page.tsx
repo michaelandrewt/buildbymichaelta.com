@@ -8,20 +8,114 @@ export const metadata: Metadata = {
   description: 'How I learn, ship, and compound skills over time.',
 };
 
+const growthItems = [
+  {
+    category: 'Process',
+    title: 'Shipping Rhythm',
+    date: 'Draft',
+    minutes: 4,
+    excerpt: 'Notes on learning loops, project momentum, and making steady progress visible.',
+  },
+  {
+    category: 'Systems',
+    title: 'Tiny Defaults',
+    date: 'Draft',
+    minutes: 5,
+    excerpt: 'Small habits, reusable checklists, and practical defaults for building faster.',
+  },
+  {
+    category: 'Reflection',
+    title: 'After Action Notes',
+    date: 'Draft',
+    minutes: 6,
+    excerpt: 'A quiet place for retros, lessons learned, and what I would change next time.',
+  },
+  {
+    category: 'Learning',
+    title: 'Compounding Hours',
+    date: 'Draft',
+    minutes: 3,
+    excerpt: 'How repeated practice, small projects, and honest feedback stack over time.',
+  },
+  {
+    category: 'Community',
+    title: 'Open Doors',
+    date: 'Draft',
+    minutes: 4,
+    excerpt: 'Thoughts on building spaces that help non-traditional builders find momentum.',
+  },
+  {
+    category: 'Direction',
+    title: 'North Star Notes',
+    date: 'Draft',
+    minutes: 5,
+    excerpt: 'Short reminders about taste, values, and the kind of work I want to keep choosing.',
+  },
+] as const;
+
 export default function GrowthPage() {
   return (
-    <div className="relative mx-auto max-w-2xl px-6 py-16 md:py-24">
-      <div className="fixed right-6 top-6 z-50 md:right-8 md:top-8">
-        <ThemeToggle />
-      </div>
-      <Link href="/" className="text-sm text-muted-foreground underline decoration-transparent decoration-2 underline-offset-4 transition-colors hover:text-foreground hover:decoration-yellow-400 dark:hover:decoration-yellow-200">
-        ← Back home
-      </Link>
-      <h1 className="font-display mt-8 text-3xl font-semibold lowercase text-foreground md:text-4xl">growth</h1>
-      <p className="mt-4 text-lg leading-relaxed text-foreground/85">
-        A place for frameworks, retros, and lessons from shipping. Content will land here when you are ready to
-        publish it.
-      </p>
+    <div className="mx-auto min-h-screen max-w-6xl px-5 pb-16 pt-8 sm:px-6 md:px-8 md:pt-10 lg:px-10">
+      <header className="grid grid-cols-[1fr_auto] grid-rows-[auto_auto] gap-x-4 gap-y-5 pb-8 sm:gap-y-6 md:grid-cols-[auto_1fr_auto] md:grid-rows-1 md:items-center md:gap-y-0">
+        <Link
+          href="/"
+          className="col-start-1 row-start-1 font-display text-xl font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] md:text-2xl"
+        >
+          Michael Ta<span className="text-foreground">.</span>
+        </Link>
+        <nav
+          aria-label="Primary"
+          className="col-span-2 row-start-2 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.95rem] font-medium lowercase tracking-wide text-muted-foreground sm:gap-x-8 md:col-span-1 md:col-start-2 md:row-start-1 md:justify-self-center md:gap-x-10"
+        >
+          <Link href="/projects" className="top-nav-link top-nav-link-project">
+            projects
+          </Link>
+          <Link href="/growth" className="top-nav-link top-nav-link-growth text-foreground">
+            growth
+          </Link>
+          <Link href="/interests" className="top-nav-link top-nav-link-interest">
+            interests
+          </Link>
+        </nav>
+        <div className="col-start-2 row-start-1 justify-self-end md:col-start-3">
+          <ThemeToggle />
+        </div>
+      </header>
+
+      <main>
+        <section className="pb-10 pt-6 md:pb-12 md:pt-10">
+          <h1 className="font-display text-6xl font-semibold leading-none tracking-normal text-foreground sm:text-7xl md:text-8xl">
+            growth notes<span className="text-pink-400">.</span>
+          </h1>
+          <p className="mt-5 max-w-4xl text-lg leading-relaxed text-foreground/85 md:text-xl">
+            Frameworks, retros, lessons from shipping, and the small systems that help learning compound.
+          </p>
+        </section>
+
+        <section aria-label="Growth list">
+          <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {growthItems.map((item) => (
+              <li key={item.title}>
+                <article className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md md:p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="font-display text-sm text-muted-foreground md:text-base">{item.category}</p>
+                    <span className="rounded-full border border-pink-300 bg-pink-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-pink-800 dark:border-pink-700 dark:bg-pink-950 dark:text-pink-200">
+                      Growth
+                    </span>
+                  </div>
+                  <h2 className="font-display mt-8 text-2xl font-semibold italic leading-tight text-foreground md:text-3xl">
+                    {item.title}
+                  </h2>
+                  <p className="mt-3 font-display text-base italic text-muted-foreground">
+                    {item.date} · {item.minutes} min read
+                  </p>
+                  <p className="mt-4 text-base leading-relaxed text-foreground/85">{item.excerpt}</p>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
     </div>
   );
 }

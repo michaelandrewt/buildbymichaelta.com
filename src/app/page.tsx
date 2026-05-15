@@ -1,23 +1,14 @@
-
-import Hero from '@/components/Hero';
-import Experiments from '@/components/Experiments';
-import Thoughts from '@/components/Thoughts';
-import ThemeToggle from '@/components/ThemeToggle';
+import FeaturedList from '@/components/home/FeaturedList';
+import IntroBlurb from '@/components/home/IntroBlurb';
+import SiteHeader from '@/components/home/SiteHeader';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
-
-
-      {/* Top right controls */}
-      <div className="fixed top-8 right-8 z-50">
-        <ThemeToggle />
-      </div>
-
-      <div className="relative z-10 max-w-5xl mx-auto px-8 py-16">
-        <Hero />
-        <Experiments />
-        <Thoughts />
+    <main className="min-h-screen">
+      <div className="mx-auto max-w-6xl px-5 pb-24 pt-8 sm:px-6 md:px-8 md:pt-10 lg:px-10">
+        <SiteHeader />
+        <IntroBlurb />
+        <FeaturedList />
       </div>
     </main>
   );

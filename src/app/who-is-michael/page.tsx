@@ -1,9 +1,14 @@
 import styles from './timeline.module.css';
 import Link from 'next/link';
 
+import ThemeToggle from '@/components/ui/ThemeToggle';
+
 export default function WhoIsMichael() {
     return (
         <div className={styles.body}>
+            <div className="fixed right-6 top-6 z-50 md:right-8 md:top-8">
+                <ThemeToggle />
+            </div>
             {/* Back Button */}
             <div className="max-w-4xl mx-auto px-4 mb-4">
                 <Link
@@ -59,9 +64,9 @@ export default function WhoIsMichael() {
                         <div className={styles.horizontalLine}></div>
                         <div className={styles.timelineDot}></div>
                         <div className={styles.contentWrapper}>
-                            <div className={styles.roleTitle}>Top Performer</div>
+                            <div className={styles.roleTitle}>Team standout</div>
                             <div className={styles.year}>Age 19</div>
-                            <p className={styles.achievement}>I burned out personalizing every outreach until I built systems using templates as frameworks, not scripts. Finding that rhythm made me a top performer. Sustainable performance comes from processes that amplify human connection, not replace it.</p>
+                            <p className={styles.achievement}>I burned out rewriting every message from scratch until I built systems that used templates as frameworks, not rigid scripts. Finding that rhythm made the work sustainable. Consistency came from processes that still felt human on the receiving end.</p>
                         </div>
                     </div>
 
@@ -69,9 +74,9 @@ export default function WhoIsMichael() {
                         <div className={styles.horizontalLine}></div>
                         <div className={styles.timelineDot}></div>
                         <div className={styles.contentWrapper}>
-                            <div className={styles.roleTitle}>Fintech Employee #3</div>
+                            <div className={styles.roleTitle}>Early startup hire</div>
                             <div className={styles.year}>Age 21</div>
-                            <p className={styles.achievement}>I chased wrong accounts with bad messaging until I treated every conversation as product research. Real market feedback refined our ICP and value prop. In early-stage sales, your job is finding the truth about who needs what you&apos;re building.</p>
+                            <p className={styles.achievement}>I talked to the wrong people with fuzzy positioning until I treated every conversation as product research. Honest feedback showed us who actually benefited from the product and why. At an early company, the fastest learning loop is listening closely and adjusting what you build.</p>
                         </div>
                     </div>
 
@@ -89,9 +94,9 @@ export default function WhoIsMichael() {
                         <div className={styles.horizontalLine}></div>
                         <div className={styles.timelineDot}></div>
                         <div className={styles.contentWrapper}>
-                            <div className={styles.roleTitle}>GTM Engineer</div>
+                            <div className={styles.roleTitle}>Server & builder</div>
                             <div className={styles.year}>Age 24</div>
-                            <p className={styles.achievement}>I&apos;m bussing tables at SET Steak to keep the lights on while building WinnyLabs and running experiments on buildbymichaelta.com between shifts. Steady income means I can learn MES/MNQ futures and build GTM products without being desperate for the next client check. The move isn&apos;t going all in on one thing, it&apos;s stacking revenue streams so you can build what matters without your back against the wall.</p>
+                            <p className={styles.achievement}>I&apos;m bussing tables at SET Steak to keep the lights on while building WinnyLabs and running experiments on buildbymichaelta.com between shifts. Steady income means I can learn MES/MNQ futures and ship side projects without rushing every decision. The move isn&apos;t going all in on one thing, it&apos;s stacking income so you can build what matters without your back against the wall.</p>
                         </div>
                     </div>
                 </div>
