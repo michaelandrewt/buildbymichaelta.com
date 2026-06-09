@@ -22,6 +22,15 @@ export const featuredItems: FeaturedItem[] = [
     excerpt: 'A placeholder for a small commerce automation experiment.',
   },
   {
+    kind: 'growth',
+    categoryLabel: 'Marketing Systems',
+    href: '/growth/marketing-skills',
+    title: 'Marketing Skills Library',
+    dateLabel: 'New',
+    readTimeMinutes: 8,
+    excerpt: '25 reusable AI marketing Skills — hooks, email, SEO, paid ads, CRO, and launch playbooks as copy-ready prompts.',
+  },
+  {
     kind: 'interest',
     categoryLabel: 'Coffee Notes',
     href: '/interests',

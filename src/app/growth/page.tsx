@@ -2,56 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import { growthItems } from '@/data/growth';
 
 export const metadata: Metadata = {
   title: 'Growth | Michael Ta',
   description: 'How I learn, ship, and compound skills over time.',
 };
-
-const growthItems = [
-  {
-    category: 'Process',
-    title: 'Shipping Rhythm',
-    date: 'Draft',
-    minutes: 4,
-    excerpt: 'Notes on learning loops, project momentum, and making steady progress visible.',
-  },
-  {
-    category: 'Systems',
-    title: 'Tiny Defaults',
-    date: 'Draft',
-    minutes: 5,
-    excerpt: 'Small habits, reusable checklists, and practical defaults for building faster.',
-  },
-  {
-    category: 'Reflection',
-    title: 'After Action Notes',
-    date: 'Draft',
-    minutes: 6,
-    excerpt: 'A quiet place for retros, lessons learned, and what I would change next time.',
-  },
-  {
-    category: 'Learning',
-    title: 'Compounding Hours',
-    date: 'Draft',
-    minutes: 3,
-    excerpt: 'How repeated practice, small projects, and honest feedback stack over time.',
-  },
-  {
-    category: 'Community',
-    title: 'Open Doors',
-    date: 'Draft',
-    minutes: 4,
-    excerpt: 'Thoughts on building spaces that help non-traditional builders find momentum.',
-  },
-  {
-    category: 'Direction',
-    title: 'North Star Notes',
-    date: 'Draft',
-    minutes: 5,
-    excerpt: 'Short reminders about taste, values, and the kind of work I want to keep choosing.',
-  },
-] as const;
 
 export default function GrowthPage() {
   return (
@@ -95,22 +51,24 @@ export default function GrowthPage() {
         <section aria-label="Growth list">
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {growthItems.map((item) => (
-              <li key={item.title}>
-                <article className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md md:p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <p className="font-display text-sm text-muted-foreground md:text-base">{item.category}</p>
-                    <span className="rounded-full border border-pink-300 bg-pink-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-pink-800 dark:border-pink-700 dark:bg-pink-950 dark:text-pink-200">
-                      Growth
-                    </span>
-                  </div>
-                  <h2 className="font-display mt-8 text-2xl font-semibold italic leading-tight text-foreground md:text-3xl">
-                    {item.title}
-                  </h2>
-                  <p className="mt-3 font-display text-base italic text-muted-foreground">
-                    {item.date} · {item.minutes} min read
-                  </p>
-                  <p className="mt-4 text-base leading-relaxed text-foreground/85">{item.excerpt}</p>
-                </article>
+              <li key={item.slug}>
+                <Link href={item.externalHref ?? `/growth/${item.slug}`} className="block h-full">
+                  <article className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md md:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <p className="font-display text-sm text-muted-foreground md:text-base">{item.category}</p>
+                      <span className="rounded-full border border-pink-300 bg-pink-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-pink-800 dark:border-pink-700 dark:bg-pink-950 dark:text-pink-200">
+                        Growth
+                      </span>
+                    </div>
+                    <h2 className="font-display mt-8 text-2xl font-semibold italic leading-tight text-foreground md:text-3xl">
+                      {item.title}
+                    </h2>
+                    <p className="mt-3 font-display text-base italic text-muted-foreground">
+                      {item.dateLabel} · {item.readTimeMinutes} min read
+                    </p>
+                    <p className="mt-4 text-base leading-relaxed text-foreground/85">{item.excerpt}</p>
+                  </article>
+                </Link>
               </li>
             ))}
           </ul>

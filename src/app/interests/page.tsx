@@ -2,56 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import { interests } from '@/data/interests';
 
 export const metadata: Metadata = {
   title: 'Interests | Michael Ta',
   description: 'Side threads, notes, and curiosities.',
 };
-
-const interests = [
-  {
-    category: 'Coffee Notes',
-    title: 'Morning Static',
-    date: 'Coming soon',
-    minutes: 3,
-    excerpt: 'A tiny log of cafes, beans, and the rituals that make work feel less rushed.',
-  },
-  {
-    category: 'Learning',
-    title: 'Syntax After Dark',
-    date: 'Coming soon',
-    minutes: 5,
-    excerpt: 'Loose notes from tutorials, docs, and experiments that finally clicked after midnight.',
-  },
-  {
-    category: 'Markets',
-    title: 'Margin Daydreams',
-    date: 'Coming soon',
-    minutes: 4,
-    excerpt: 'Small observations on ecommerce, pricing, and the strange psychology of buying things online.',
-  },
-  {
-    category: 'Media',
-    title: 'Queue Theory',
-    date: 'Coming soon',
-    minutes: 2,
-    excerpt: 'A running shelf of videos, essays, games, and shows worth saving for later.',
-  },
-  {
-    category: 'Process',
-    title: 'Tiny Systems',
-    date: 'Coming soon',
-    minutes: 6,
-    excerpt: 'Personal workflows, useful defaults, and small habits that keep projects moving.',
-  },
-  {
-    category: 'Daily Life',
-    title: 'Errand Weather',
-    date: 'Coming soon',
-    minutes: 3,
-    excerpt: 'Unpolished notes about routines, city walks, food stops, and little details that stick.',
-  },
-] as const;
 
 export default function InterestsPage() {
   return (
@@ -96,22 +52,24 @@ export default function InterestsPage() {
         <section aria-label="Interest list">
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {interests.map((interest) => (
-              <li key={interest.title}>
-                <article className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md md:p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <p className="font-display text-sm text-muted-foreground md:text-base">{interest.category}</p>
-                    <span className="rounded-full border border-sky-300 bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-800 dark:border-sky-700 dark:bg-sky-950 dark:text-sky-200">
-                      Interest
-                    </span>
-                  </div>
-                  <h2 className="font-display mt-8 text-2xl font-semibold italic leading-tight text-foreground md:text-3xl">
-                    {interest.title}
-                  </h2>
-                  <p className="mt-3 font-display text-base italic text-muted-foreground">
-                    {interest.date} · {interest.minutes} min read
-                  </p>
-                  <p className="mt-4 text-base leading-relaxed text-foreground/85">{interest.excerpt}</p>
-                </article>
+              <li key={interest.slug}>
+                <Link href={`/interests/${interest.slug}`} className="block h-full">
+                  <article className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md md:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <p className="font-display text-sm text-muted-foreground md:text-base">{interest.category}</p>
+                      <span className="rounded-full border border-sky-300 bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-800 dark:border-sky-700 dark:bg-sky-950 dark:text-sky-200">
+                        Interest
+                      </span>
+                    </div>
+                    <h2 className="font-display mt-8 text-2xl font-semibold italic leading-tight text-foreground md:text-3xl">
+                      {interest.title}
+                    </h2>
+                    <p className="mt-3 font-display text-base italic text-muted-foreground">
+                      {interest.dateLabel} · {interest.readTimeMinutes} min read
+                    </p>
+                    <p className="mt-4 text-base leading-relaxed text-foreground/85">{interest.excerpt}</p>
+                  </article>
+                </Link>
               </li>
             ))}
           </ul>
